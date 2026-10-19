@@ -68,11 +68,13 @@ function game(){
   <div class="cols">${col('A')}${col('B')}</div>
   ${showLog?logHtml():''}`;
 }
+
 function frow(p){
   const g=cnt(p.id,'g'),a=cnt(p.id,'a');
   return `<div class="fr ${g||a?'':'zero'}"><span class="nm">${esc(pname(p))}</span>
   <span class="st" title="Golos">${BALL}${g}</span><span class="st" title="Assistências">${BOOT}${a}</span></div>`;
 }
+
 function fcol(t){
   const L=t==='A'?0:1;
   const ps=S.players.filter(p=>p.team===t).sort((x,y)=>(cnt(y.id,'g')-cnt(x.id,'g'))||(cnt(y.id,'a')-cnt(x.id,'a')));
